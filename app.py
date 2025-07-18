@@ -13,6 +13,7 @@ def job():
     alerts = detect_anomalies(normalized)
     store_alerts(alerts)
     send_alerts(alerts)
+    execute_playbook
 
 @app.route('/')
 def dashboard():
