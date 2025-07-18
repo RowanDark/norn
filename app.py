@@ -13,7 +13,10 @@ def job():
     alerts = detect_anomalies(normalized)
     store_alerts(alerts)
     send_alerts(alerts)
-    execute_playbook
+
+     for _, alert in alerts.iterrows():
+        execute_playbook(alert)
+    print("Job completed with SOAR automation.")
 
 @app.route('/')
 def dashboard():
